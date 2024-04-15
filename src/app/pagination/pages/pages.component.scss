@@ -1,0 +1,148 @@
+.userinfo{
+    padding: 50px;
+}
+
+
+.avatar{
+    padding: 2px;
+    height: 200px;
+    border: solid;
+    border-color:aliceblue;
+    border-radius: 50%;
+    margin-left: 40px
+}
+
+.gitLink{
+    display: flex;
+    margin-top: 40px;
+    color:aliceblue;
+}
+
+.username{
+    margin-left: 100px;
+    margin-top: 40px;
+    color:aliceblue;
+    padding:2px
+}
+
+.additionalInfo{
+    margin-left: 100px;
+    display: flex;
+    color:aliceblue;
+    margin-top: 40px;
+}
+.bio{}
+.location{
+    margin-top: 10px;
+    display: flex;
+}
+
+
+.followers{
+    margin-left: 100px;
+    margin-top: 40px;
+    color:aliceblue;
+    padding:2px
+}
+.followersCount{
+    margin-left: 100px;
+    margin-top: 10px;
+    color:aliceblue;
+    padding:2px
+}
+
+.followings{
+    margin-left: 100px;
+    margin-top: 40px;
+    color:aliceblue;
+    padding:2px
+}
+.followingsCount{
+    margin-left: 100px;
+    margin-top: 10px;
+    color:aliceblue;
+    padding:2px
+}
+
+
+.pagesCount{
+    display: flex;
+    margin-left: 50px;
+}
+
+.Repositories{
+    padding: 50px;
+   
+}
+
+.repos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.repo-item {
+    width: 48%; 
+    box-sizing: border-box;
+    margin-bottom: 20px; 
+    color: #2c363ee9;
+    border: solid;
+    padding: 10px;
+    border-radius: 15px;
+    border-width: thin;
+    background-color: #242e3c;
+    height: 120px;
+    overflow: hidden; 
+}
+
+.repo-item-content {
+    color: aliceblue;
+    max-width: calc(100% - 20px); 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+
+
+
+/* Styles for the dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styles for the select element */
+  .dropdown select {
+    appearance: none; /* Remove default styles */
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Border radius */
+    background-color: #fff; /* Background color */
+    color: #333; /* Text color */
+    cursor: pointer; /* Show pointer cursor on hover */
+    outline: none; /* Remove outline on focus */
+    transition: border-color 0.3s ease; /* Add transition for border color */
+  }
+  
+  /* Styles for the dropdown arrow */
+  .dropdown::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #666; /* Dropdown arrow color */
+    pointer-events: none; /* Make arrow not clickable */
+  }
+  
+  .norepos{
+    color: aliceblue;
+    width:100%;
+    margin-left: 50%;
+  }
