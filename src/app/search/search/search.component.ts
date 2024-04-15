@@ -13,7 +13,7 @@ export class SearchComponent {
   ){}
   Repos:any;
   error:any;
-  
+  // method to search user
   searchUser(username: string) {
     this.apiService.getUser(username).subscribe((data)=>{
       this.Repos=data;
