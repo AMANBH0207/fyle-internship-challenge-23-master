@@ -12,6 +12,7 @@ export class SearchComponent {
     private apiService: ApiService,private router:Router
   ){}
   Repos:any;
+  error:any;
   
   searchUser(username: string) {
     this.apiService.getUser(username).subscribe((data)=>{
@@ -20,7 +21,8 @@ export class SearchComponent {
       console.log(this.Repos);
       this.router.navigate(['getrepos'])
     },(error)=>{
-      console.log(error);
+      console.log("error is=",error.status);
+      this.error=error.status;
     })
   }
 
