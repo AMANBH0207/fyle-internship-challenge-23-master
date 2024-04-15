@@ -1,3 +1,39 @@
+.skeleton-loader {
+    animation: loading 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes loading {
+    0% {
+      background-color: #424242; /* Dark gray */
+    }
+    50% {
+      background-color: #616161; /* Medium gray */
+    }
+    100% {
+      background-color: #424242; /* Dark gray */
+    }
+  }
+
+  .skeleton-text{
+    width:100%;
+    height: .5rem;
+    margin-bottom: .25rem;
+    border-radius:.125rem;
+  }
+
+  .skeleton-text-additional{
+    width:300px;
+    height: .5rem;
+    margin-bottom: .25rem;
+    border-radius:.125rem;
+  }
+
+  .skeleton-text:last-child{
+    margin-bottom:0;
+    width:80%;
+  }
+
+
 .userinfo{
     padding: 50px;
 }
@@ -9,6 +45,7 @@
 .avatar{
     padding: 2px;
     height: 200px;
+    width:200px;
     border: solid;
     border-color:aliceblue;
     border-radius: 50%;
@@ -127,7 +164,7 @@
     font-size: 16px; /* Adjust font size as needed */
     border: 1px solid #ccc; /* Border color */
     border-radius: 5px; /* Border radius */
-    background-color: #fff; /* Background color */
+    background-color: #282c34; /* Background color */
     color: #333; /* Text color */
     cursor: pointer; /* Show pointer cursor on hover */
     outline: none; /* Remove outline on focus */
@@ -171,6 +208,10 @@
     margin-top: 10px;
   }
 
+  .paginate{
+    margin-top:20px;
+  }
+
 
   /* Add media query for responsiveness */
 @media screen and (max-width: 768px) {
@@ -182,6 +223,7 @@
     .avatar{
         padding: 2px;
         height: 200px;
+        width: 150px;
         border: solid;
         border-color:aliceblue;
         border-radius: 50%;

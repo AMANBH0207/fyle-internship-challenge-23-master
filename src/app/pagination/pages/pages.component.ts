@@ -9,9 +9,15 @@ import { ApiService } from 'src/app/services/api.service';
 export class PagesComponent implements OnInit {
 constructor(private apiservice:ApiService)
 {}
+
+isLoading: boolean = true;
   ngOnInit(): void {
     this.getRepos();
-    this.getAdditionalData()
+    this.getAdditionalData();
+    setTimeout(() => {
+      // After data is loaded
+      this.isLoading = false;
+    }, 2000);
   }
 
   
@@ -25,8 +31,8 @@ constructor(private apiservice:ApiService)
   REPOS:any;
   page:number=1;
   count:number=this.Repopages.public_repos;
-  tableSize:number=5;
-  tableSizes:any=[5,10,15,20];
+  tableSize:number=10;
+  tableSizes:any=[10,15,20];
 
   getAdditionalData(){
     console.log('Additional data',this.Repopages);

@@ -1,48 +1,30 @@
-<div class=" place-items-center " style="background-color: #282c34; height:100%; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-    <div class="main">
-    <div class="userinfo">
-        <img class="avatar" src={{Repopages.avatar_url}}/>
-        <div class="gitLink">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="aliceblue" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-              </svg>
-              
-            <a href='{{Repopages.html_url}}'>{{Repopages.html_url}}</a>
+<div *ngIf="isLoading; else content">
+    <div class="main" >
+        <!-- Skeleton loader for userinfo section -->
+        <div class="userinfo ">
+          <img class="avatar userinfo skeleton-loader"  />
+          <div class="gitLink skeleton-loader skeleton-text">
+            
+          </div>
         </div>
-        
-    </div>
-    <div>
-        <p class="text-2xl username">{{Repopages.login}}</p>
-        <div class="additionalInfo">
-            <div >
-            <p class="bio">{{Repopages.bio}}</p>
-
-
-                <div class="location" *ngIf="Repopages.location!=null" >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                      </svg>
-                    <p >{{Repopages.location}}</p>
-                </div>
-                <p *ngIf="Repopages.twitter_username!=null" class="twitter">Twitter:<a href="https://twitter.com/{{Repopages.twitter_username}}">https://twitter.com/{{Repopages.twitter_username}}</a></p>
+      
+        <!-- Skeleton loader for username section -->
+        <div>
+          <p class="text-2xl username skeleton-loader skeleton-text"></p>
+          <div class="additionalInfo ">
+            <div>
+              <p class="bio skeleton-loader skeleton-text"></p>
+      
+              <div class="location skeleton-loader skeleton-text" *ngIf="Repopages.location != null">
+              </div>
+              <p *ngIf="Repopages.twitter_username != null" class=" skeleton-loader skeleton-text-additional" style="margin-top: 10px;"><a href=""></a></p>
             </div>
+          </div>
         </div>
-        
-    </div>
-
-    </div>
-    
-    <!-- dropdown -->
-    <div class="relative inline-block text-left">
-        <div class="pagesCount">
-            <p class="selectedpagesize">Selected page size:</p>
-          <button  type="button" class="inline-flex justify-center w-full px-3 py-2 text-sm font-semibold text-gray-900 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true" (click)="toggleDropdown()">
-            {{tableSize}}
-            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-            </svg>
-          </button>
+      </div>
+      <div class="relative inline-block text-left ">
+        <div class="pagesCount skeleton-loader skeleton-text">
+            <p class="selectedpagesize"></p>
         </div>
       
         <div *ngIf="isDropdownOpen" class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
@@ -53,28 +35,28 @@
         </div>
       </div>
            
-
-   
-    <div class="Repositories">
-        <div class="repos-container">
+    
+    
+    <div class="Repositories ">
+        <div class="repos-container ">
             <ng-container *ngFor="let items of data | paginate:{
                 itemsPerPage:tableSize,
                 currentPage:page,
                 totalItems:count
             }; get let i = index;  ">
-                <div class="repo-item" >
+                <div class="repo-item skeleton-loader skeleton-text" >
                     <div class="repo-item-content">
                         <div style="color: aliceblue;">
                             <h1 class="text-2xl"  style="padding:5px">
-                                {{ items.name }}
+                            
                             </h1>
-                            <p style="padding: 5px;">{{items.description}}</p>
+                            <p style="padding: 5px;"></p>
                         </div>
                         
                         <div class="topics"*ngFor="let topics of data.topics"
                         >
                             <div class="topics-div" >
-                                <p style="padding:5px">{{topics}}</p>
+                                <p style="padding:5px"></p>
                             </div>
                         </div>
                         
@@ -85,15 +67,118 @@
                 <h1>No repositories.</h1>
             </div>
         </div>
-        <div style="margin-top:20px" *ngIf="data != undefined">
-        <pagination-controls
-            previousLabel="Prev"
-            nextLabel="Next"
-            (pageChange)="onTableDataChange($event)">
-        </pagination-controls>
+        <div class="paginate skeleton-loader skeleton-text"  *ngIf="data != undefined">
     </div>
     </div>
-    
-
-
 </div>
+
+
+
+
+
+
+  
+  <!-- content -->
+  <ng-template #content>
+    <div class=" place-items-center " style="background-color: #282c34; height:100%; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        <div class="main">
+        <div class="userinfo">
+            <img class="avatar skeleton" src={{Repopages.avatar_url}}/>
+            <div class="gitLink">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="aliceblue" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                  </svg>
+                  
+                <a href='{{Repopages.html_url}}'>{{Repopages.html_url}}</a>
+            </div>
+            
+        </div>
+        <div>
+            <p class="text-2xl username">{{Repopages.login}}</p>
+            <div class="additionalInfo">
+                <div >
+                <p class="bio">{{Repopages.bio}}</p>
+    
+    
+                    <div class="location" *ngIf="Repopages.location!=null" >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                          </svg>
+                        <p >{{Repopages.location}}</p>
+                    </div>
+                    <p *ngIf="Repopages.twitter_username!=null" class="twitter">Twitter:<a href="https://twitter.com/{{Repopages.twitter_username}}">https://twitter.com/{{Repopages.twitter_username}}</a></p>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <!-- dropdown -->
+        <div class="relative inline-block text-left">
+            <div class="pagesCount">
+                <p class="selectedpagesize">Selected page size:</p>
+              <button  type="button" class="inline-flex justify-center w-full px-3 py-2 text-sm font-semibold text-gray-900 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true" (click)="toggleDropdown()">
+                {{tableSize}}
+                <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          
+            <div *ngIf="isDropdownOpen" class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="py-1" role="none" *ngFor="let num of tableSizes;">
+                <button  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" style="width: 100%;" role="menuitem" tabindex="-1" id="menu-item-0" (click)="setPageSize(num)">{{num}}</button>
+                
+              </div>
+            </div>
+          </div>
+               
+    
+       
+        <div class="Repositories">
+            <div class="repos-container">
+                <ng-container *ngFor="let items of data | paginate:{
+                    itemsPerPage:tableSize,
+                    currentPage:page,
+                    totalItems:count
+                }; get let i = index;  ">
+                    <div class="repo-item" >
+                        <div class="repo-item-content">
+                            <div style="color: aliceblue;">
+                                <h1 class="text-2xl"  style="padding:5px">
+                                    {{ items.name }}
+                                </h1>
+                                <p style="padding: 5px;">{{items.description}}</p>
+                            </div>
+                            
+                            <div class="topics"*ngFor="let topics of data.topics"
+                            >
+                                <div class="topics-div" >
+                                    <p style="padding:5px">{{topics}}</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="norepos" *ngIf="data === undefined">
+                    <h1>No repositories.</h1>
+                </div>
+            </div>
+            <div style="margin-top:20px" *ngIf="data != undefined">
+            <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)">
+            </pagination-controls>
+        </div>
+        </div>
+        
+    
+    
+    </div>
+  </ng-template>
+
+
+
+
