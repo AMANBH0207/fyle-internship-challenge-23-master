@@ -2,6 +2,9 @@
     padding: 50px;
 }
 
+.main{
+    display: flex;
+}
 
 .avatar{
     padding: 2px;
@@ -23,6 +26,12 @@
     margin-top: 40px;
     color:aliceblue;
     padding:2px
+}
+
+
+.selectedpagesize{
+    color: aliceblue;
+     width:350px;
 }
 
 .additionalInfo{
@@ -91,16 +100,15 @@
     border-radius: 15px;
     border-width: thin;
     background-color: #242e3c;
-    height: 120px;
+    height:auto;
     overflow: hidden; 
 }
 
 .repo-item-content {
-    color: aliceblue;
     max-width: calc(100% - 20px); 
     overflow: hidden; 
     text-overflow: ellipsis; 
-    white-space: nowrap; 
+    white-space: normal; /* Change from nowrap to normal */
 }
 
 
@@ -142,7 +150,100 @@
   }
   
   .norepos{
+    margin-top: 110px;
+    margin-bottom:110px ;
     color: aliceblue;
     width:100%;
-    margin-left: 50%;
+    margin-left: 45%;
   }
+
+  .topics{
+    display: flex;
+    padding: 10px;
+    
+  }
+
+  .topics-div{
+    border-radius: 5px; border: solid;border-width: thin; width: fit-content; background-color: #0080FF; margin-right: 10px;
+  }
+
+  .twitter{
+    margin-top: 10px;
+  }
+
+
+  /* Add media query for responsiveness */
+@media screen and (max-width: 768px) {
+    .main{
+        flex-direction: column;
+    }
+    
+    
+    .avatar{
+        padding: 2px;
+        height: 200px;
+        border: solid;
+        border-color:aliceblue;
+        border-radius: 50%;
+        margin-left: 20%;
+    }
+    
+    .gitLink{
+        margin-left: 5%;
+        display: flex;
+        color:aliceblue;
+    }
+
+    .additionalInfo{
+        margin-left: 100px;
+        display: flex;
+        color:aliceblue;
+        margin-bottom: 50px;
+    }
+
+    .selectedpagesize{
+        color: aliceblue;
+         width:240px;
+    }
+
+    .place-items-center {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .pagesCount{
+        display: flex;
+    }
+
+
+    .userinfo {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+    .avatar {
+        height: 150px; /* Decrease avatar size for smaller screens */
+    }
+    .username {
+        margin-left: 20px; /* Adjust margin for smaller screens */
+    }
+    .additionalInfo {
+        margin-left: 20px; /* Adjust margin for smaller screens */
+    }
+    .repos-container {
+        flex-direction: column; /* Change to column layout for smaller screens */
+    }
+    .repo-item {
+        width: 100%; /* Set width to 100% for smaller screens */
+    }
+    .repo-item-content {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+    .topics {
+        flex-wrap: wrap; /* Allow topics to wrap for smaller screens */
+    }
+    .topics-div {
+        margin-bottom: 10px; /* Add margin between topics for smaller screens */
+    }
+    .norepos {
+        margin-left: 20px; /* Adjust margin for smaller screens */
+        text-align: center; /* Center text for smaller screens */
+    }
+}

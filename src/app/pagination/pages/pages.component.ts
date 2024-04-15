@@ -68,15 +68,5 @@ isDropdownOpen = false;
     this.getRepos();
   }
 
-  //get languages
-  getLanguages(languages_url:string){
-
-    return this.apiservice.getLanguages(languages_url).subscribe(
-      (results)=>{
-        
-      }
-    )
-    
-  }
 
 }
